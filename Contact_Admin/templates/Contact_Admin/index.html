@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+<title>Request Movies</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" type="image/png" href="{% static 'Contact_Admin/images/icons/favicon.ico' %}" />
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/vendor/bootstrap/css/bootstrap.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/fonts/Linearicons-Free-v1.0.0/icon-font.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/vendor/animate/animate.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/vendor/css-hamburgers/hamburgers.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/vendor/select2/select2.min.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/css/util.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'Contact_Admin/css/main.css' %}">
+
+</head>
+<body>
+<div class="container-contact100" style="background-image: url(' {% static 'Contact_Admin/images/bg-01.jpg' %} ');">
+<div class="wrap-contact100">
+<form method="POST" action="{% url 'Contact_Admin:Sent_downloadable_link' %}" class="contact100-form validate-form">
+  {% csrf_token %}
+{% if Name %}
+<span class="contact100-form-title">
+{{ Name }} 
+<br>
+Request is completed Succesfully and Don't stop you have many request go and sent emails. 
+</span>
+{% else %}
+<span class="contact100-form-title">
+  Sent A Movie Link
+</span>
+<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Name is required">
+<span class="label-input100">Movie or Series Name *</span>
+<input class="input100" type="text" name="Movie_Name" placeholder="Enter Movie Name">
+</div>
+<div class="wrap-input100 rs1-wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+<span class="label-input100">Enter the reciever's mail *</span>
+<input class="input100" type="text" name="email" placeholder="Enter Reciever's email">
+</div>
+<div class="wrap-input100 validate-input" data-validate="Message is required">
+<span class="label-input100">Downloadable links here.</span>
+<textarea class="input100" name="message" placeholder="Enter the full name of the Movie or T.V Show with their a download link."></textarea>
+</div>
+<div class="container-contact100-form-btn">
+<div class="wrap-contact100-form-btn">
+<div class="contact100-form-bgbtn"></div>
+<button class="contact100-form-btn">
+Sent a Link
+</button>
+</div>
+</div>
+</form>
+{% endif %}
+</div>
+</div>
+<div id="dropDownSelect1"></div>
+
+<script src="{% static 'Contact_Admin/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+
+<script src="{% static 'Contact_Admin/vendor/bootstrap/js/popper.js' %}"></script>
+<script src="{% static 'Contact_Admin/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'Contact_Admin/vendor/select2/select2.min.js' %}"></script>
+
+<script src="{% static 'Contact_Admin/js/main.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+
+</html>
